@@ -1,4 +1,4 @@
-FROM dadhx05.interno:9092/oidigital/alpine-node8
+FROM node:8-alpine
 
 COPY package.json package.json
 RUN  npm install

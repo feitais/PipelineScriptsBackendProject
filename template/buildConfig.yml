@@ -1,0 +1,28 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: devops-test-node-backend
+  namespace: ci-cd
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'devops-test-node-backend:latest'
+  postCommit:
+    script: npm test
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: 'https://github.com/feitais/PipelineScriptsBackendProject.git'
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'nodejs:8'
+        namespace: openshift
+    type: Source
+  triggers:
+    - type: ConfigChange

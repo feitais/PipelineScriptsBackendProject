@@ -8,6 +8,10 @@
     "test:mocha": "nyc --reporter=lcov mocha --exit --timeout 10000",
     "test": "istanbul cover _mocha -- ./test/*test.js --include-all-sources --exit true"
   },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",

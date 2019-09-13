@@ -1,6 +1,6 @@
 timestamps{
     node('nodejs'){
-        def sonar = load “sonar.groovy”
+        
         stage('checkout'){
             checkout scm
             //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/feitais/PipelineScriptsBackendProject.git']]])
@@ -13,7 +13,7 @@ timestamps{
             sh 'npm test'
         }
         stage('Code Quality'){
-            
+            def sonar = load 'sonar.groovy'
             sonar.codeQuality()
             
         }

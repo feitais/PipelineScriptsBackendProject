@@ -1,5 +1,5 @@
 timestamps{
-    node('nodejs'){
+    node('nodejsoci'){
         
         stage('checkout'){
             checkout scm
